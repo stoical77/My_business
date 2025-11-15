@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mushroom Services</title>
+
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -17,19 +19,29 @@
             padding: 15px 30px;
             background: #2c2c2c;
             color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
         }
+
         header .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
         }
+
         header .auth a {
             color: white;
-            margin-left: 15px;
+            margin-left: 20px;
             text-decoration: none;
             font-size: 16px;
+            transition: 0.3s;
         }
+
+        header .auth a:hover {
+            color: #ffcc66;
+        }
+
         .hero {
-            background: url('https://images.unsplash.com/photo-1508177255675-3b4d3a2d8dd1') center/cover no-repeat;
             height: 380px;
             display: flex;
             align-items: center;
@@ -38,122 +50,112 @@
             text-shadow: 1px 1px 4px black;
             font-size: 38px;
             font-weight: bold;
-        }
-        .section {
-            padding: 40px 60px;
-            background: white;
-            margin: 25px auto;
-            max-width: 1100px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: #fafafa;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            padding: 15px;
-            text-align: center;
-        }
-        .product-card img {
-            width: 100%;
-            border-radius: 10px;
-            height: 180px;
-            object-fit: cover;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #2c2c2c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            animation: slideBg 12s infinite alternate ease-in-out, fadeIn 1.5s ease-out;
+            background-size: cover;
         }
 
-        .hero {
-            animation: fadeIn 1.5s ease-out;
-        }
-        .section {
-            animation: fadeIn 1s ease-out;
-        }
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: zoomIn 0.8s ease-out;
-        }
-        .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
         @keyframes slideBg {
             0% { background-image: url('https://images.unsplash.com/photo-1508177255675-3b4d3a2d8dd1'); }
             50% { background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6'); }
             100% { background-image: url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd'); }
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .hero {
-            animation: slideBg 12s infinite alternate ease-in-out, fadeIn 1.5s ease-out;
-            background-size: cover;
-        }
         .section {
+            padding: 40px 30px;
+            background: white;
+            margin: 25px auto;
+            max-width: 1100px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             animation: fadeIn 1s ease-out;
         }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
         .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
             animation: zoomIn 0.8s ease-out;
         }
+
         .product-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
         button {
+            margin-top: 10px;
+            padding: 12px 25px;
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
             position: relative;
             overflow: hidden;
-            z-index: 1;
         }
+
         button::after {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: -120%;
             width: 100%;
             height: 100%;
             background: rgba(255,255,255,0.3);
-            transition: all 0.4s ease;
-            z-index: -1;
+            transition: 0.4s;
         }
+
         button:hover::after {
             left: 0;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #2c2c2c;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        @media(max-width: 600px) {
+            .hero { font-size: 24px; text-align: center; padding: 20px; }
+            header { flex-direction: column; }
+            header .auth a { margin-left: 10px; }
+        }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -168,12 +170,14 @@
 
 <div class="section" id="about">
     <h2>About Website</h2>
-    <p>Welcome to Mushroom Hub — your one‑stop destination for fresh, organic, and premium‑grade mushrooms. We offer multiple mushroom varieties and customized services including bulk orders, home delivery, and cultivation consultancy.</p>
+    <p>Welcome to Mushroom Hub — your destination for premium, organic mushrooms. We supply multiple varieties and offer services like bulk orders, home delivery, and cultivation guidance.</p>
 </div>
 
 <div class="section" id="products">
     <h2>Our Mushroom Products</h2>
+
     <div class="products">
+
         <div class="product-card">
             <img src="https://raw.githubusercontent.com/stoical77/My_business/main/oyster_mush.jpg" alt="Oyster Mushroom" />
             <h3>Oyster Mushroom</h3>
@@ -194,6 +198,7 @@
             <p>Premium, thick texture, excellent for gourmet dishes.</p>
             <button>Select Service</button>
         </div>
+
     </div>
 </div>
 
@@ -203,16 +208,20 @@
         <li>Fresh Mushroom Home Delivery</li>
         <li>Bulk Mushroom Supply for Restaurants</li>
         <li>Mushroom Farming Consultation</li>
-        <li>Ready‑to‑Cook Mushroom Packs</li>
-        <li>Mushroom‑Based Products: Pickles, Dry Mushrooms, Powders</li>
+        <li>Ready-to-Cook Mushroom Packs</li>
+        <li>Mushroom-Based Products: Pickles, Powders, Dried Mushrooms</li>
     </ul>
 </div>
 
 <div class="section" id="order">
     <h2>Place Your Order</h2>
-    <p>Select your products, choose services, proceed to checkout, and complete payment easily.</p>
+    <p>Choose your mushrooms, select services, proceed to checkout, and complete payment easily.</p>
     <button>Order Now</button>
 </div>
+
+<footer>
+    © 2025 Mushroom Hub — All Rights Reserved
+</footer>
 
 </body>
 </html>
