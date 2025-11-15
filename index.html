@@ -168,21 +168,30 @@
             height: 100%;
             object-fit: cover;
             position: absolute;
-            animation: slideShow 32s infinite;
+            animation: slideShow 12s infinite;
             opacity: 0;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.4), 0 0 45px rgba(0,255,200,0.3);
         }
 
         .mushroom-slider img:nth-child(1) { animation-delay: 0s; }
         .mushroom-slider img:nth-child(2) { animation-delay: 4s; }
         .mushroom-slider img:nth-child(3) { animation-delay: 8s; }
-        .mushroom-slider img:nth-child(4) { animation-delay: 12s; }
-        .mushroom-slider img:nth-child(5) { animation-delay: 16s; }
-        .mushroom-slider img:nth-child(6) { animation-delay: 20s; }
-        .mushroom-slider img:nth-child(7) { animation-delay: 24s; }
-        .mushroom-slider img:nth-child(8) { animation-delay: 28s; }
+        
 
         @keyframes slideShow {
-            0% { opacity: 0; }
+            0% { opacity: 0; transform: scale(1) translateX(20px); }
+            10% { opacity: 1; transform: scale(1.05) translateX(0); }
+            40% { opacity: 1; transform: scale(1.1) translateX(0); }
+            50% { opacity: 0; transform: scale(1) translateX(-20px); }
+            100% { opacity: 0; transform: scale(1) translateX(-20px); }
+        }
+            10% { opacity: 1; transform: scale(1.05) translateX(0); }
+            40% { opacity: 1; transform: scale(1.1) translateX(0); }
+            50% { opacity: 0; transform: scale(1) translateX(-20px); }
+            100% { opacity: 0; transform: scale(1) translateX(-20px); }
+        
+        }
             5% { opacity: 1; }
             25% { opacity: 1; }
             30% { opacity: 0; }
@@ -239,14 +248,9 @@
 </header>
 
 <div class="mushroom-slider">
-        <img src="https://images.unsplash.com/photo-1602526216437-d3995f2d1fba" />
-        <img src="https://images.unsplash.com/photo-1602526215770-df093d7e6f84" />
-        <img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f" />
-        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe" />
-        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc" />
-        <img src="https://images.unsplash.com/photo-1483504132920-e1e21b8bd324" />
-        <img src="https://images.unsplash.com/photo-1473341304171-c6227db76b6e" />
-        <img src="https://images.unsplash.com/photo-1518564883508-4141b8d0376e" />
+        <img src="anim1.jpg" />
+        <img src="anim2.jpg" />
+        <img src="anim3.jpg" />
     </div>
 
 <div class="hero">
