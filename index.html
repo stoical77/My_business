@@ -74,6 +74,30 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .hero {
+            animation: fadeIn 1.5s ease-out;
+        }
+        .section {
+            animation: fadeIn 1s ease-out;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: zoomIn 0.8s ease-out;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -97,7 +121,7 @@
     <h2>Our Mushroom Products</h2>
     <div class="products">
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1597534458220-9b65a3e3e7b3" alt="Oyster Mushroom" />
+            <img src="https://images.unsplash.com/photo-1600359756011-df3f43f28c52" alt="Oyster Mushroom" />
             <h3>Oyster Mushroom</h3>
             <p>Soft, fresh, and perfect for daily cooking.</p>
             <button>Select Service</button>
@@ -111,7 +135,7 @@
         </div>
 
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1604908177453-3e10ea1f5757" alt="Milky Mushroom" />
+            <img src="https://images.unsplash.com/photo-1518562180175-34a1649ef757" alt="Milky Mushroom" />
             <h3>Milky Mushroom</h3>
             <p>Premium, thick texture, excellent for gourmet dishes.</p>
             <button>Select Service</button>
