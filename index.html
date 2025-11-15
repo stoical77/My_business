@@ -55,9 +55,9 @@
         }
 
         @keyframes slideBg {
-            0% { background-image: url('https://images.unsplash.com/photo-1508177255675-3b4d3a2d8dd1'); }
-            50% { background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6'); }
-            100% { background-image: url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd'); }
+            0% { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d'); }
+            50% { background-image: url('https://images.unsplash.com/photo-1508182311256-e3f9f7d5b83a'); }
+            100% { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d'); }
         }
 
         .section {
@@ -153,7 +153,79 @@
             header { flex-direction: column; }
             header .auth a { margin-left: 10px; }
         }
-    </style>
+    
+        .mushroom-slider {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+
+        .mushroom-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            animation: slideShow 32s infinite;
+            opacity: 0;
+        }
+
+        .mushroom-slider img:nth-child(1) { animation-delay: 0s; }
+        .mushroom-slider img:nth-child(2) { animation-delay: 4s; }
+        .mushroom-slider img:nth-child(3) { animation-delay: 8s; }
+        .mushroom-slider img:nth-child(4) { animation-delay: 12s; }
+        .mushroom-slider img:nth-child(5) { animation-delay: 16s; }
+        .mushroom-slider img:nth-child(6) { animation-delay: 20s; }
+        .mushroom-slider img:nth-child(7) { animation-delay: 24s; }
+        .mushroom-slider img:nth-child(8) { animation-delay: 28s; }
+
+        @keyframes slideShow {
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            25% { opacity: 1; }
+            30% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+.hero { position: relative; }
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    padding: 12px 25px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+}
+
+.hero-text .sub {
+    display: block;
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffe9b3;
+}
+
+</style>
 </head>
 
 <body>
@@ -166,7 +238,24 @@
     </div>
 </header>
 
-<div class="hero">Fresh Mushrooms • Organic • Premium Quality</div>
+<div class="mushroom-slider">
+        <img src="https://images.unsplash.com/photo-1602526216437-d3995f2d1fba" />
+        <img src="https://images.unsplash.com/photo-1602526215770-df093d7e6f84" />
+        <img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f" />
+        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe" />
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc" />
+        <img src="https://images.unsplash.com/photo-1483504132920-e1e21b8bd324" />
+        <img src="https://images.unsplash.com/photo-1473341304171-c6227db76b6e" />
+        <img src="https://images.unsplash.com/photo-1518564883508-4141b8d0376e" />
+    </div>
+
+<div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+        🍄 Fresh Mushrooms • Organic • Premium Quality 🍄<br>
+        <span class="sub">Delivered Fresh Daily</span>
+    </div>
+</div>
 
 <div class="section" id="about">
     <h2>About Website</h2>
@@ -186,7 +275,7 @@
         </div>
 
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Button Mushroom" />
+            <img src="https://raw.githubusercontent.com/stoical77/My_business/main/button_mus.jpg" alt="Button Mushroom" />
             <h3>Button Mushroom</h3>
             <p>Classic taste, ideal for curries and snacks.</p>
             <button>Select Service</button>
